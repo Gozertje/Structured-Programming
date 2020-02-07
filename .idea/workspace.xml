@@ -41,7 +41,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.opdracht_10">
+  <component name="RunManager" selected="Python.opdracht_11">
     <configuration name="Opdracht_8" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Structured-Programming" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,7 +105,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="opdracht_6" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="opdracht_11" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Structured-Programming" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,7 +117,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/formative opdracht 1/opdracht_6.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/formative opdracht 1/opdracht_11.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -138,7 +138,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/formative opdracht 1/opdract_9.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Jort\Documents\School\Structured programming\Structured-Programming\formative opdracht 1\opdracht_9.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -149,11 +149,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.opdracht_11" />
         <item itemvalue="Python.opdracht_10" />
         <item itemvalue="Python.opdract_9" />
         <item itemvalue="Python.Opdracht_8" />
         <item itemvalue="Python.opdracht 7" />
-        <item itemvalue="Python.opdracht_6" />
       </list>
     </recent_temporary>
   </component>
