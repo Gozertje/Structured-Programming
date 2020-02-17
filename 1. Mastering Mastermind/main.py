@@ -46,15 +46,68 @@ def speler():
         tr += 1
         if ant['Z'] == 4:
             print('Gelfeliciteerd je het gewonnen')
-
     print('Helaas verloren')
 
 
+def one_step_a_head():
+    counter = {}
+    for i in ans_p:
+        structre = {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '1.0': 0, '1.1': 0, '1.2': 0, '1.3': 0, '2.0': 0,
+                    '2.1': 0, '2.2': 0, '3.0': 0, '4.0': 0}
+        for x in ans_p:
+            ans = feedback(i, x)
+            structre[str(ans['Z']) + '.' + str(ans['W'])] += 1
+        counter[i] = structre
+    return counter
+
+
+def worst_case(table):
+    counter = {}
+    structre = ['0.0', '0.1', '0.2', '0.3', '0.4', '1.0', '1.1', '1.2', '1.3', '2.0', '2.1', '2.1', '2.2', '3.0', '4.0']
+    for i in ans_p:
+        for x in structre:
+            if table[i][x] != 0:
+                if i in counter:
+                    counter[i][1] += (table[i][x] ** 2) / 1296
+                else:
+                    counter[i] = [i, (table[i][x] ** 2) / 1296]
+    return counter
+
+
+def algo(table):
+    lowest = [0, 9999999]
+    for i in ans_p:
+        if table[i][1] < lowest[1]:
+            lowest = table[i]
+    return lowest[0]
+
+
+def brace(f_code, fb_1):
+    ans_n = []
+    for code in ans_p:
+        fb_2 = feedback(code, f_code)
+        if fb_1 == fb_2:
+            ans_n.append(code)
+    return ans_n
+
+
 def mastermind():
+    tr = 0
     secret_code = list(input('Voer vier letters in A t/m F: ').upper())
-    code = list(ans_p[random.randrange(1296)])
-    print(code)
-    print(feedback(code, secret_code))
+    while tr < 10:
+        global ans_p
+        if tr != 0:
+            ans_p = brace(code, fb)
+            print(ans_p)
+            code = algo(worst_case(one_step_a_head()))
+        else:
+            code = algo(worst_case(one_step_a_head()))
+        fb = (feedback(code, secret_code))
+        print(fb, code)
+        if fb['Z'] == 4:
+            print("Gewonnen!")
+            break
+        tr += 1
 
 
 que = input('Spelerm als \'Mastermind\' of \'Speler\': ').capitalize()
