@@ -1,3 +1,5 @@
+"""Kooi, B. (z.d.). YET ANOTHER MASTERMIND STRATEGY. Geraadpleegd van
+https://canvas.hu.nl/courses/7474/assignments/68530"""
 import random
 pins = ['A', 'B', 'C', 'D', 'E', 'F']
 
@@ -108,6 +110,7 @@ def mastermind():
             print("Gewonnen!")
             break
         tr += 1
+    print('Verloren')
 
 
 que = input('Spelerm als \'Mastermind\' of \'Speler\': ').capitalize()
