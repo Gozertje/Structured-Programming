@@ -1,25 +1,27 @@
 """Kooi, B. (z.d.). YET ANOTHER MASTERMIND STRATEGY. Geraadpleegd van
 https://canvas.hu.nl/courses/7474/assignments/68530"""
 import random
+from datetime import datetime
 pins = ['A', 'B', 'C', 'D', 'E', 'F']
 
 # Genereerd lijst met alle mogelijke antwoorden
-ans_p = []
-for x_1 in pins:
-    for x_2 in pins:
-        for x_3 in pins:
-            for x_4 in pins:
-                string = x_1 + x_2 + x_3 + x_4
-                ans_p.append(string)
+ans_ps = []
+for l_1 in pins:
+    for l_2 in pins:
+        for l_3 in pins:
+            for l_4 in pins:
+                string = l_1 + l_2 + l_3 + l_4
+                ans_ps.append(string)
 
 
-def generate_code():
-    secrete_code = []
+# Genereerd een random code
+def generate_code(secret_code):
     for i in range(4):
-        secrete_code.append(pins[random.randrange(6)])
-    return secrete_code
+        secret_code.append(pins[random.randrange(6)])
+    return secret_code
 
 
+# Geeft feedback op die ingevoerde code
 def feedback(code, secrete_code):
     fb = {'Z': 0, 'W': 0}
     pinz = {'A': [0, 0, 0, 0], 'B': [0, 0, 0, 0], 'C': [0, 0, 0, 0], 'D': [0, 0, 0, 0], 'E': [0, 0, 0, 0], 'F': [0, 0, 0, 0]}
@@ -38,83 +40,82 @@ def feedback(code, secrete_code):
     return fb
 
 
-def speler():
-    secret_code = generate_code()
-    tr = 0
-    while tr < 10:
+# Input van de speler
+def speler(tri, secret_code):
+    while tri < 10:
         gues = list(input('Doe een gok: ').upper())
         ant = feedback(gues, secret_code)
         print(ant)
-        tr += 1
+        tri += 1
         if ant['Z'] == 4:
             print('Gelfeliciteerd je het gewonnen')
     print('Helaas verloren')
 
 
-def one_step_a_head():
-    counter = {}
-    for i in ans_p:
+# Berekent welke mogelijke feedback we kunnen krijgen
+def one_step_a_head(counter):
+    for i in ans_ps:
         structre = {'0.0': 0, '0.1': 0, '0.2': 0, '0.3': 0, '0.4': 0, '1.0': 0, '1.1': 0, '1.2': 0, '1.3': 0, '2.0': 0,
                     '2.1': 0, '2.2': 0, '3.0': 0, '4.0': 0}
-        for x in ans_p:
+        for x in ans_ps:
             ans = feedback(i, x)
             structre[str(ans['Z']) + '.' + str(ans['W'])] += 1
         counter[i] = structre
     return counter
 
 
-def worst_case(table):
-    counter = {}
+# Berekent de 'expected case'
+def worst_case(table, counter):
     structre = ['0.0', '0.1', '0.2', '0.3', '0.4', '1.0', '1.1', '1.2', '1.3', '2.0', '2.1', '2.1', '2.2', '3.0', '4.0']
-    for i in ans_p:
+    for i in ans_ps:
         for x in structre:
             if table[i][x] != 0:
                 if i in counter:
-                    counter[i][1] += (table[i][x] ** 2) / 1296
+                    counter[i][1] += (table[i][x] ** 2) / len(ans_ps)
                 else:
-                    counter[i] = [i, (table[i][x] ** 2) / 1296]
+                    counter[i] = [i, (table[i][x] ** 2) / len(ans_ps)]
     return counter
 
 
-def algo(table):
+# Checkt welke waarde het laagst is
+def lowest_case(table):
     lowest = [0, 9999999]
-    for i in ans_p:
+    for i in ans_ps:
         if table[i][1] < lowest[1]:
             lowest = table[i]
     return lowest[0]
 
 
+# Mogelijke antwoorden verwijderen
 def brace(f_code, fb_1):
     ans_n = []
-    for code in ans_p:
+    for code in ans_ps:
         fb_2 = feedback(code, f_code)
         if fb_1 == fb_2:
             ans_n.append(code)
     return ans_n
 
 
-def mastermind():
-    tr = 0
-    secret_code = list(input('Voer vier letters in A t/m F: ').upper())
-    while tr < 10:
-        global ans_p
-        if tr != 0:
-            ans_p = brace(code, fb)
-            print(ans_p)
-            code = algo(worst_case(one_step_a_head()))
+# Input van de Computer
+def mastermind(secret_code, tri):
+    while tri < 10:
+        global ans_ps
+        if tri != 0:
+            ans_ps = brace(code, fb)
+            print(ans_ps)
+            code = lowest_case(worst_case(one_step_a_head({}), {}))
         else:
-            code = algo(worst_case(one_step_a_head()))
+            code = lowest_case(worst_case(one_step_a_head({}), {}))
         fb = (feedback(code, secret_code))
         print(fb, code)
         if fb['Z'] == 4:
             print("Gewonnen!")
             break
-        tr += 1
-    print('Verloren')
+        tri += 1
 
 
-que = input('Spelerm als \'Mastermind\' of \'Speler\': ').capitalize()
+que = input('Speler als \'Mastermind\' of \'Speler\': ').capitalize()
 if que == 'Speler':
-    speler()
+    speler(0, generate_code([]))
 else:
-    mastermind()
+    mastermind(list(input('Voer vier letters in A t/m F: ').upper()), 0)
