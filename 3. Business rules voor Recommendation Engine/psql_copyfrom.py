@@ -1,6 +1,6 @@
 import psycopg2
 
-c = psycopg2.connect("dbname=postgres user=postgres password=postgres")  #TODO: edit this.
+c = psycopg2.connect("dbname=sp user=postgres password=Jopa2002jp")  #TODO: edit this.
 cur = c.cursor()
 
 filenames = ['products', 'profiles', 'profiles_previously_viewed', 'sessions']

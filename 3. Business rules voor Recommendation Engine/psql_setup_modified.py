@@ -1,6 +1,6 @@
 import psycopg2
 
-c = psycopg2.connect("dbname=postgres user=postgres password=postgres") #TODO: edit this.
+c = psycopg2.connect("dbname=sp user=postgres password=Jopa2002jp") #TODO: edit this.
 cur = c.cursor()
 
 cur.execute("DROP TABLE IF EXISTS products CASCADE")
