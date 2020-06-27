@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8b40abbd-0fb2-4b2b-a786-94b0ab120d2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/csv/#table_names.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/recommendation_engine.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,7 +28,7 @@
   <component name="ProjectId" id="1XLHRFvtOEfG53pfiv1jxLj4qMz" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../recommendation-engine" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -46,7 +48,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.recommendation_engine">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Structured-Programming" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -154,9 +156,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.recommendation_engine" />
         <item itemvalue="Python.psql_copyfrom" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.psql_setup_modified" />
         <item itemvalue="Python.main" />
       </list>
@@ -193,13 +195,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/test.py</url>
-          <line>5</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
