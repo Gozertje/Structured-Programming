@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8b40abbd-0fb2-4b2b-a786-94b0ab120d2b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/csv/#table_names.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/recommendation_engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/3. Business rules voor Recommendation Engine/recommendation_engine.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

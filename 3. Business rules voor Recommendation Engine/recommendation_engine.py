@@ -10,7 +10,7 @@ cur.execute("""CREATE TABLE user_rec
                 u8 VARCHAR, u9 VARCHAR, u10 VARCHAR, u11 VARCHAR, u12 VARCHAR, u13 VARCHAR, u14 VARCHAR, u16 VARCHAR, 
                 u17 VARCHAR, u18 VARCHAR, u19 VARCHAR, u20 VARCHAR, u21 VARCHAR, u22 VARCHAR)""")
 
-
+# Maakt csv bestand aan
 def create_csv(fieldname, filename):
     with open('csv/' + filename + '.csv', mode='w', newline="") as csv_file:
         csv_write = csv.DictWriter(csv_file, fieldnames=fieldname)
@@ -23,8 +23,8 @@ def write_csv(filename, line):
         csv_writer = csv.writer(csv_file)
         csv_writer.writerow(line)
 
-
-def sort_category():
+# Kijkt welke producten overeenkomen
+def match_products():
     cur.execute("SELECT * FROM products")
     data = cur.fetchall()
     dictionary = {}
@@ -41,6 +41,7 @@ def sort_category():
         list.remove(data, item)
 
 
+# kijkt welke gebruikers dezelfde producten gekocht hebben
 def sort_user():
     cur.execute("SELECT * FROM profiles_previously_viewed")
     data = cur.fetchall()
@@ -61,6 +62,7 @@ def sort_user():
         dictionary.__delitem__(item[1])
 
 
+# kijkt hoevaak gebruikers hetzelfde product gekocht hebben
 def link_users():
     cur.execute("""SELECT * FROM user_rec""")
     data = cur.fetchall()
@@ -88,7 +90,7 @@ create_csv(['id', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', '
 create_csv(['id', 'u1', 'u2', 'u3', 'u4', 'u5', 'u6', 'u7', 'u8', 'u9', 'u10', 'u11', 'u12', 'u13', 'u14', 'u15',
             'u16', 'u17', 'u18', 'u19', 'u20', 'u21', 'u22'], 'user_rec')
 create_csv(['id', 'profile', 'compatibility'], 'compatibility')
-sort_category()
+match_products()
 sort_user()
 
 with open('csv/user_rec.csv') as csvfile:
